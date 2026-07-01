@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   root to: "homes#top"
   get "home/about", to: "homes#about", as: "about"
-  resources :books, only: [:index, :show, :edit]
+  resources :books, only: [:index, :show, :edit, :create, :update, :destroy]
   
-  resources :users, only: [:new, :create, :show, :edit] , path_names: { new: 'sign_up'}
-  resource :session
+  resources :users, only: [:new, :create, :show, :edit] , path_names: { new: 'sign_up'} do
+    collection do
+      get  'sign_in', to: 'sessions#new', as: :new_session
+      post 'sign_in', to: 'sessions#create', as: :session
+    end
+  end
+
+  delete "users/sign_out", to: "sessions#destroy", as: :destroy_session
+  
   resources :passwords, param: :token
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

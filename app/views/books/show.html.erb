@@ -1,2 +1,44 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="mt-5 ms-3">
+  <div class="row me-3">
+
+    <div class="col-md-3">
+      <%= render "users/sidebar", user: @user, book: Book.new %>
+    </div>
+
+    <div class="col-md-8 offset-md-1">
+      
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@user) do %>
+                <% if @user.profile_image.attached? %>
+                  <%= image_tag @user.profile_image, style: "max-width: 40px; border-radius: 4px;" %><br>
+                <% else %>
+                  <%= image_tag "no_image.jpg", style: "max-width: 40px; border-radius: 4px;" %><br>
+                <% end %>
+                <%= @user.name %>
+              <% end %>
+            </td>
+            
+            <td><%= @book.title %></td>
+            
+            <td><%= @book.body %></td>
+
+            <% if @book.user == Current.user %>
+              <td>
+                <%= link_to "Edit", edit_book_path(@book), class: "btn btn-sm btn-success" %>
+              </td>
+              <td>
+                <%= link_to "Destroy", book_path(@book), data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }, class: "btn btn-sm btn-danger" %>
+              </td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+</div>

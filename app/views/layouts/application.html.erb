@@ -58,7 +58,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to session_path, data: { turbo_method: :delete }, class: "nav-link text-light", rel: "nofollow" do %>
+                  <%= link_to destroy_session_path, data: { turbo_method: :delete }, class: "nav-link text-light", rel: "nofollow" do %>
                     <i class="fa-solid fa-sign-out-alt"></i> Log out
                   <% end %>
                 </li>
@@ -80,7 +80,7 @@
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to new_session_path, class: "nav-link text-light" do %>
+                  <%= link_to session_users_path, class: "nav-link text-light" do %>
                     <i class="fa-solid fa-sign-in-alt"></i> Log in
                   <% end %>
                 </li>

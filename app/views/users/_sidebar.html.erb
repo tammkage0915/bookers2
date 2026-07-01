@@ -1,0 +1,45 @@
+<h2>User info</h2>
+<table class="table">
+  <tbody>
+    <tr>
+      <td colspan="2">
+        <% if user.profile_image.attached? %>
+          <%= image_tag user.profile_image, class: "img-fluid mb-2", style: "max-width: 100px; border-radius: 5px;" %>
+        <% else %>
+          <%= image_tag "no_image.jpg", class: "img-fluid mb-2", style: "max-width: 100px; border-radius: 5px;" %>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
+      <th>name</th>
+      <td><%= user.name %></td>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="mb-4">
+  <%= link_to edit_user_path(user), class: "btn btn-outline-secondary w-100" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+
+<h2 class="mt-4">New book</h2>
+<%= form_with model: book, url: books_path, local: true do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, "Title", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control", id: "book_title", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, "Opinion", class: "form-label" %>
+    <%= form.text_area :body, class: "form-control", id: "book_body", required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit "Create Book", class: "btn btn-success" %>
+  </div>
+<% end %>

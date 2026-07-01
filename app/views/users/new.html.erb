@@ -15,22 +15,22 @@
     
     <div class="field">
       <%= f.label :name %><br>
-      <%= f.text_field :name, autofocus: true, class: "name" %>
+      <%= f.text_field :name, autofocus: true %>
     </div>
 
     <div class="field">
       <%= f.label :email_address %><br>
-      <%= f.email_field :email_address, class: "email" %>
+      <%= f.email_field :email_address %>
     </div>
 
     <div class="field">
       <%= f.label :password %><br>
-      <%= f.password_field :password, class: "password" %>
+      <%= f.password_field :password %>
     </div>
 
     <div class="field">
       <%= f.label :password_confirmation %><br>
-      <%= f.password_field :password_confirmation, class: "password_confirm" %>
+      <%= f.password_field :password_confirmation %>
     </div>
 
     <div class="actions">
@@ -38,5 +38,5 @@
     </div>
   <% end %>
 
-  <%= link_to "Log in", new_session_path %>
+  <%= link_to "Log in", session_users_path %>
 </div>

@@ -1,1 +1,23 @@
-<h1>Topページ</h1>
+<div class="mt-3 text-center">
+
+  <div class="col-11 col-md-7 col-lg-5 mx-auto text-start">
+    <h1>Welcome to <i class="fa-solid fa-book"></i><strong>Bookers</strong> !!</h1>
+    
+    <div class="mt-4">
+      <p>In <i class="fa-solid fa-book"></i><strong>Bookers</strong>,</p>
+      <p>you can share and exchange your opinions, impressions, and emotions</p>
+      <p>about various books!</p>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <div class="mb-3">
+      <%= link_to "Log in", session_users_path, class: "btn btn-sm btn-info w-25 text-white" %>
+    </div>
+    
+    <div>
+      <%= link_to "Sign up", new_user_path, class: "btn btn-sm btn-success w-25" %>
+    </div>
+  </div>
+
+</div>
